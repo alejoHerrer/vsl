@@ -1,0 +1,15 @@
+package net.jaimetorres.pila.approval.core.misc;
+
+public enum SubsistemaPila {
+	
+	PENSION,
+	FONDO_SOLIDARIDAD_PENSIONAL,
+	SALUD,
+	RIESGOS,
+	PARAFISCALES_CAJAS,
+	PARAFISCALES_SENA,
+	PARAFISCALES_ICBF,
+	PARAFISCALES_ESAP,
+	PARAFISCALES_MINEDU,
+	NO_EXISTE
+}
