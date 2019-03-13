@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<property name="LOG_FOLDER" value="executionLog" />
+	<property name="LOG_FILE_NAME" value="application.log" />
+	
+	<!-- ISO 8601 -->
+	<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+	<!-- ========== -->
+	<!-- APPENDER's -->
+	<!-- ========== -->
+
+	<!-- CONSOLE 
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	-->
+	
+	<!-- FILE -->
+	<appender name="UNDERLYING" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_FOLDER}/${bySecond}-${LOG_FILE_NAME}</file>
+		<encoder>
+			<pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- ======== -->
+	<!-- LOGGER's -->
+	<!-- ======== -->
+
+	<!-- Strictly speaking, the level attribute is not necessary since -->
+	<!-- the level of the root level is set to DEBUG by default. -->
+	<root level="INFO">
+		<appender-ref ref="UNDERLYING" />
+	</root>
+
+</configuration>

@@ -1,0 +1,1079 @@
+<beanio xmlns="http://www.beanio.org/2012/03" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+ 	
+ 	<!-- REGISTRO TIPO A -->
+  	<stream name="ActivosRegistroAOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+  	
+  		<parser>
+  			<property name="recordTerminator" value="\r\n"/>
+  		</parser>
+  	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.registroA.ActivosRegistroAEncabezadoOut" minOccurs="1" maxOccurs="1">
+			<field length="200"	name="razonSocialAportante" type="string"  />
+			<field length="2"	name="tipoIdentificacionAportante" type="string"  />
+			<field length="16"	name="nroIdentificacionAportante" type="string"  />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="10"	name="codigoSucursal" type="string"  />
+			<field length="40"	name="nombreSucursal" type="string"  />
+			<field length="1"	name="claseAportante" type="string" />			
+			<field length="1"	name="naturalezaJuridica" type="string" justify="right"/>
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />			
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string"  justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string"  justify="right"/>
+			<field length="4"	name="actividadEconomica" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />			
+			<field length="16"	name="nroIdentificacionRepLegal" type="string" />
+			<field length="1"	name="dvRepLegal" type="string" justify="right"/>
+			<field length="2"	name="tipoIdentificacionRepLegal" type="string" />
+			<!-- 21 -->
+			<field length="20"	name="primerApellidoRepLegal" type="string" />
+			<field length="30"	name="segundoApellidoRepLegal" type="string" />
+			<field length="20"	name="primerNombreRepLegal" type="string" />
+			<field length="30"	name="segundoNombreRepLegal" type="string" />
+			<field length="10"	name="fechaConcordato" type="string" />
+			<field length="1"	name="tipoAccion" type="string" justify="right"/>
+			<field length="10"	name="fechaFinActividades" type="string" />
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="2"	name="tipoAportante" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="10"	name="fechaMatriculaMercantil" type="string" />
+			<field length="2"	name="departamentoMatriculaMercantil" type="string" />
+			<field length="1"	name="exoneradoPagoParafiscalesSalud" type="string" />
+			<field length="1"	name="beneficiarioLey1429" type="string" />
+		</record>
+		
+		<!-- bugfix: many enters to the end -->
+		<record name="empty" order="2" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+  	</stream>
+ 	
+ 	<!-- PENSION -->
+	<stream name="ActivosPensionOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+	
+		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.pension.ActivosPensionEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="02" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string"/>
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string"/>
+			<field length="2"	name="tipoIdentificacionAportante" type="string"/>
+			<field length="16"	name="nroIdentificacionAportante" type="string"/>
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string"/>
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string"/>
+			<field length="7"	name="periodoPago" type="string"/>
+			<field length="6"	name="codigoArp" type="string"/>
+			<field length="1"	name="tipoPlanilla" type="string"/>
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string"/>
+			<!-- 21 -->
+			<field length="10"	name="fechaPago" type="string"/>
+			<field length="10"	name="nroPlanillaAsociada" type="string"/>
+			<field length="10"	name="nroPlanilla" type="string"/>
+			<field length="1"	name="formaPresentacion" type="string"/>
+			<field length="10"	name="codigoSucursal" type="string"/>
+			<field length="40"	name="nombreSucursal" type="string"/>
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>
+			<field length="1"	name="claseAportante" type="string"/>
+			<field length="1"	name="naturalezaJuridica" type="string"/>
+			<field length="1"	name="tipoPersona" type="string"/>
+			<field length="10"	name="fechaUltimaActualizacion" type="string"/>
+		</record>
+
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.pension.ActivosPensionLiquidacionDetalladaOut" minOccurs="1" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string"/>
+			<field length="16"	name="nroIdentificacion" type="string"/>
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string"/>			
+			<field length="1"	name="colombianoResidenteExterior" type="string"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string"/>
+			<field length="30"	name="segundoApellido" type="string"/>
+			<field length="20"	name="primerNombre" type="string"/>
+			<field length="30"	name="segundoNombre" type="string"/>
+			<field length="1"	name="novedadIngreso" type="string"/>
+			<field length="1"	name="novedadRetiro" type="string"/>
+			<field length="1"	name="novedadTrasladoAfpDesde" type="string"/>
+			<field length="1"	name="novedadTrasladoAfpA" type="string"/>
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string"/>
+			<!-- 20 -->
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string"/>
+			<field length="1"	name="novedadSuspension" type="string"/>
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string"/>
+			<field length="1"	name="novedadLicenciaMaternidad" type="string"/>
+			<field length="1"	name="novedadVacaciones" type="string"/>
+			<field length="1"	name="novedadAporteVoluntarioPensiones" type="string"/>
+			<field length="2"	name="diasCotizadosPension" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibcPension" type="string" justify="right"/>
+			<field length="7"	name="tarifaPension" type="string" justify="left"/>
+			<!-- 30 -->
+			<field length="9"	name="cotizacionPension" type="string" justify="right"/>
+			<field length="9"	name="cotizacionVoluntariaPensionAfiliado" type="string" justify="right"/>
+			<field length="9"	name="cotizacionVoluntariaPensionAportante" type="string" justify="right"/>
+			<field length="9"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="9"	name="aporteFondoSolidaridadPensionalSubcuentaSolidaridad" type="string" justify="right"/>
+			<field length="9"	name="aporteFondoSolidaridadPensionalSubcuentaSubsistencia" type="string" justify="right"/>
+			<field length="9"	name="valorNoRetenidoAportesVoluntarios" type="string" justify="right"/>
+			<field length="1"	name="novedadCorreccion" type="string"/>
+			<field length="1"	name="salarioIntegral" type="string"/>
+			<field length="1"	name="indicadorTarifaEspecialPensiones" type="string"/>
+			<!-- 40 -->
+			<field length="10"	name="fechaIngreso" type="string"/>
+			<field length="10"	name="fechaRetiro" type="string"/>
+			<field length="10"	name="fechaInicioVSP" type="string"/>
+			<field length="10"	name="fechaInicioSLN" type="string"/>
+			<field length="10"	name="fechaFinSLN" type="string"/>
+			<field length="10"	name="fechaInicioIGE" type="string"/>
+			<field length="10"	name="fechaFinIGE" type="string"/>
+			<field length="10"	name="fechaInicioLMA" type="string"/>
+			<field length="10"	name="fechaFinLMA" type="string"/>
+			<field length="10"	name="fechaInicioVAC" type="string"/>
+			<!-- 50 -->
+			<field length="10"	name="fechaFinVAC" type="string"/>
+			<field length="10"	name="fechaInicioIRL" type="string"/>
+			<field length="10"	name="fechaFinIRL" type="string"/>
+			<field length="2"	name="diasNovedadIncapacidadRiesgosProfesionales" type="string" justify="right"/>
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.pension.ActivosPensionTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacionVoluntariaPensionAfiliado" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacionVoluntariaPensionAportante" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacionPensionMasVoluntarias" type="string" justify="right"/>
+			<field length="13"	name="totalAporteFondoSolidaridadPensionalSubcuentaSolidaridad" type="string" justify="right"/>
+			<field length="13"	name="totalAporteFondoSolidaridadPensionalSubcuentaSubsistencia" type="string" justify="right"/>
+		</record>
+
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.pension.ActivosPensionTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+			<field length="11"	name="moraAporteFondoSolidaridadPensionalSubcuentaSolidaridad" type="string" justify="right"/>
+			<field length="11"	name="moraAporteFondoSolidaridadPensionalSubcuentaSubsistencia" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.pension.ActivosPensionTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="13"	name="totalAporteFondoSolidaridadPensionalSubcuentaSolidaridad" type="string" justify="right"/>
+			<field length="13"	name="totalAporteFondoSolidaridadPensionalSubcuentaSubsistencia" type="string" justify="right"/>
+		</record>
+		
+		<!-- bugfix: many enters to the end -->
+		<record name="empty" order="6" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+		
+ 	</stream>
+ 	
+ 	<!-- SALUD -->
+ 	<stream name="ActivosSaludOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="03" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="6"	name="codigoArp" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="fechaPago" type="string" />
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>			
+			<field length="10"	name="fechaMatriculaMercantil" type="string" />
+			<field length="2"	name="codigoDepartamentoMatriculaMercantil" type="string" />
+			<field length="1"	name="aportanteExoneradoLey1607" type="string" />
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string" />
+		</record>
+		
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludLiquidacionDetalladaOut" minOccurs="1" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string" />
+			<field length="16"	name="nroIdentificacion" type="string" />
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string" />			
+			<field length="1"	name="colombianoResidenteExterior" type="string" />
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string" />
+			<field length="30"	name="segundoApellido" type="string" />
+			<field length="20"	name="primerNombre" type="string" />
+			<field length="30"	name="segundoNombre" type="string" />
+			<field length="1"	name="novedadIngreso" type="string" />
+			<field length="1"	name="novedadRetiro" type="string" />
+			<field length="1"	name="novedadTrasladoEpsDesde" type="string" />
+			<field length="1"	name="novedadTrasladoEpsA" type="string" />
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string" />
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string" />
+			<!-- 21 -->
+			<field length="1"	name="novedadSuspension" type="string" />
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string" />
+			<field length="1"	name="novedadLicenciaMaternidad" type="string" />
+			<field length="1"	name="novedadVacaciones" type="string" />
+			<field length="2"	name="diasCotizadosSalud" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibcSalud" type="string" justify="right"/>
+			<field length="7"	name="tarifaSalud" type="string" justify="left"/>
+			<field length="9"	name="cotizacionSalud" type="string" justify="right"/>
+			<field length="9"	name="valorUpcAdicional" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="1"	name="novedadCorreccion" type="string" />
+			<field length="1"	name="salarioIntegral" type="string" />
+			<field length="1"	name="cotizanteExoneradoLey1607" type="string" />
+			<field length="10"	name="fechaIngreso" type="string" />
+			<field length="10"	name="fechaRetiro" type="string" />
+			<field length="10"	name="fechaInicioVSP" type="string" />
+			<field length="10"	name="fechaInicioSLN" type="string" />
+			<field length="10"	name="fechaFinSLN" type="string" />
+			<field length="10"	name="fechaInicioIGE" type="string" />
+			<field length="10"	name="fechaFinIGE" type="string" />
+			<!-- 41 -->
+			<field length="10"	name="fechaInicioLMA" type="string" />
+			<field length="10"	name="fechaFinLMA" type="string" />
+			<field length="10"	name="fechaInicioVAC" type="string" />
+			<field length="10"	name="fechaFinVAC" type="string" />
+			<field length="10"	name="fechaInicioVCT" type="string" />
+			<field length="10"	name="fechaFinVCT" type="string" />
+			<field length="10"	name="fechaInicioIRL" type="string" />
+			<field length="10"	name="fechaFinIRL" type="string" />
+			<field length="10"	name="fechaRadicacionExterior" type="string" />
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="13"	name="totalUpcAdicional" type="string" justify="right"/>
+		</record>
+
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+			<field length="11"	name="moraUpcAdicionales" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="13"	name="totalNetoAportes" type="string" justify="right"/>
+			<field length="13"	name="totalUpcAdicional" type="string" justify="right"/>
+		</record>
+
+		<!-- RESOLUCION 1608 2017, T 408924 -->
+		<record name="ley1819" order="6" class="net.jaimetorres.pila.approval.pojos.output.activos.salud.ActivosSaludLey1819Out" minOccurs="0" maxOccurs="1">
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="4"/>		
+			<field length="1"	name="indicadorUgpp" type="string" justify="right"/>
+			<field length="14"	name="nroActoAdministrativo" type="string" />
+			<field length="10"	name="fechaAperturaLiquidacion" type="string" />
+			<field length="20"	name="nombreEntidad" type="string" />
+			<field length="13"	name="valorPagadoSancion" type="string" justify="right"/>
+		</record> 
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="6" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+ 	
+ 	<!-- RIESGOS -->
+ 	<stream name="ActivosRiesgosOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="04" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string"/>
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string"/>
+			<field length="2"	name="tipoIdentificacionAportante" type="string"/>
+			<field length="16"	name="nroIdentificacionAportante" type="string"/>
+			<field length="1"	name="dvAportante" type="string" />
+			<field length="2"	name="tipoAportante" type="string"/>
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string"/>
+			<field length="7"	name="periodoPago" type="string"/>
+			<field length="1"	name="tipoPlanilla" type="string"/>
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string"/>
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string"/>
+			<field length="10"	name="nroPlanilla" type="string"/>
+			<field length="1"	name="formaPresentacion" type="string"/>
+			<field length="10"	name="codigoSucursal" type="string"/>
+			<field length="40"	name="nombreSucursal" type="string"/>
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string"/>
+		</record>
+		
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosLiquidacionDetalladaOut" minOccurs="0" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string"/>
+			<field length="16"	name="nroIdentificacion" type="string"/>
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string"/>			
+			<field length="1"	name="colombianoResidenteExterior" type="string"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string"/>
+			<field length="30"	name="segundoApellido" type="string"/>
+			<field length="20"	name="primerNombre" type="string"/>
+			<field length="30"	name="segundoNombre" type="string"/>
+			<field length="1"	name="novedadIngreso" type="string"/>
+			<field length="1"	name="novedadRetiro" type="string"/>
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string"/>
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string"/>
+			<field length="1"	name="novedadSuspension" type="string"/>
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string"/>
+			<!-- 21 -->
+			<field length="1"	name="novedadLicenciaMaternidad" type="string"/>
+			<field length="1"	name="novedadVacaciones" type="string"/>
+			<field length="1"	name="novedadVariacionCentrosTrabajo" type="string"/>
+			<field length="2"	name="diasNovedadIncapacidadRiesgosProfesionales" type="string" justify="right"/>
+			<field length="2"	name="diasCotizadosRiesgos" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibcRiesgos" type="string" justify="right"/>
+			<field length="7"	name="tarifaRiesgos" type="string" justify="left"/>
+			<field length="9"	name="codigoCentroTrabajo" type="string" justify="right"/>
+			<field length="9"	name="cotizacionRiesgos" type="string" justify="right"/>
+			<!-- 31 -->			
+			<field length="6"	name="codigoAfpAfiliado" type="string"/>
+			<field length="6"	name="codigoEpsAfiliado" type="string"/>
+			<field length="1"	name="novedadCorreccion" type="string"/>
+			<field length="1"	name="salarioIntegral" type="string"/>
+			<field length="6"	name="codigoArlAfiliado" type="string"/>
+			<field length="1"	name="claseRiesgoAfiliado" type="string"/>
+			<field length="10"	name="fechaIngreso" type="string"/>
+			<field length="10"	name="fechaRetiro" type="string"/>
+			<field length="10"	name="fechaInicioVSP" type="string"/>
+			<field length="10"	name="fechaInicioSLN" type="string"/>
+			<!-- 41 -->
+			<field length="10"	name="fechaFinSLN" type="string"/>
+			<field length="10"	name="fechaInicioIGE" type="string"/>
+			<field length="10"	name="fechaFinIGE" type="string"/>
+			<field length="10"	name="fechaInicioLMA" type="string"/>
+			<field length="10"	name="fechaFinLMA" type="string"/>
+			<field length="10"	name="fechaInicioVAC" type="string"/>
+			<field length="10"	name="fechaFinVAC" type="string"/>
+			<field length="10"	name="fechaInicioVCT" type="string"/>
+			<field length="10"	name="fechaFinVCT" type="string"/>
+			<field length="10"	name="fechaInicioIRL" type="string"/>
+			<!-- 51 -->
+			<field length="10"	name="fechaFinIRL" type="string"/>
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon32" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosTotalesRenglon32Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon32" type="string" justify="right" literal="00032" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="15"	name="nroAutorizacionPagoIncapacidades" type="string"/>
+			<field length="13"	name="valorTotalIncapacidadesPagadas" type="string" justify="right"/>
+			<field length="13"	name="valorAportesOtrosSistemas" type="string" justify="right"/>
+			<field length="10"	name="nroRadicado" type="string" justify="right"/>
+			<field length="11"	name="valorSaldoFavor" type="string" justify="right"/>
+			<field length="11"	name="totalDescuentos" type="string" justify="right"/>
+		</record>
+
+		<record name="totalesRenglon36" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="6" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+			<field length="11"	name="totalDescontar" type="string" justify="right"/>
+			<field length="13"	name="totalNetoAportes" type="string" justify="right"/>
+		</record>
+		
+		<!-- RESOLUCION 1608 2017, T 408924 -->
+		<record name="ley1819" order="7" class="net.jaimetorres.pila.approval.pojos.output.activos.riesgos.ActivosRiesgosLey1819Out" minOccurs="0" maxOccurs="1">
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="4"/>		
+			<field length="1"	name="indicadorUgpp" type="string" justify="right"/>
+			<field length="14"	name="nroActoAdministrativo" type="string"/>
+			<field length="10"	name="fechaAperturaLiquidacion" type="string" />
+			<field length="20"	name="nombreEntidad" type="string"/>
+			<field length="13"	name="valorPagadoSancion" type="string" justify="right"/>
+		</record> 	
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="8" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+ 	
+ 	<!-- CAJAS -->
+ 	<stream name="ActivosCajasOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="05" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>			
+			<field length="10"	name="fechaMatriculaMercantil" type="string" />
+			<field length="2"	name="codigoDepartamentoMatriculaMercantil" type="string" />
+			<field length="1"	name="aportanteAcogeBeneficiosLey1429" type="string" />
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string" />
+		</record>
+		
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasLiquidacionDetalladaOut" minOccurs="0" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string" />
+			<field length="16"	name="nroIdentificacion" type="string" />
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string" />			
+			<field length="1"	name="colombianoResidenteExterior" type="string" />
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string" />
+			<field length="30"	name="segundoApellido" type="string" />
+			<field length="20"	name="primerNombre" type="string" />
+			<field length="30"	name="segundoNombre" type="string" />
+			<field length="1"	name="novedadIngreso" type="string" />
+			<field length="1"	name="novedadRetiro" type="string" />
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string" />
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string" />
+			<field length="1"	name="novedadSuspension" type="string" />
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string" />
+			<!-- 21 -->
+			<field length="1"	name="novedadLicenciaMaternidad" type="string" />
+			<field length="1"	name="novedadVacaciones" type="string" />
+			<field length="2"	name="diasNovedadIncapacidadRiesgosProfesionales" type="string" justify="right"/>
+			<field length="2"	name="diasCotizadosCajas" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibcCajas" type="string" justify="right"/>
+			<field length="7"	name="tarifaCajas" type="string" justify="left"/>
+			<field length="9"	name="cotizacionCajas" type="string" justify="right"/>
+			<field length="1"	name="novedadCorreccion" type="string" />
+			<field length="1"	name="salarioIntegral" type="string" />
+			<!-- 31 -->
+			<field length="10"	name="fechaIngreso" type="string" />
+			<field length="10"	name="fechaRetiro" type="string" />
+			<field length="10"	name="fechaInicioVSP" type="string" />
+			<field length="10"	name="fechaInicioSLN" type="string" />
+			<field length="10"	name="fechaFinSLN" type="string" />
+			<field length="10"	name="fechaInicioIGE" type="string" />
+			<field length="10"	name="fechaFinIGE" type="string" />
+			<field length="10"	name="fechaInicioLMA" type="string" />
+			<field length="10"	name="fechaFinLMA" type="string" />
+			<field length="10"	name="fechaInicioVAC" type="string" />
+			<!-- 41 -->
+			<field length="10"	name="fechaFinVAC" type="string" />
+			<field length="10"	name="fechaInicioVCT" type="string" />
+			<field length="10"	name="fechaFinVCT" type="string" />
+			<field length="10"	name="fechaInicioIRL" type="string" />
+			<field length="10"	name="fechaFinIRL" type="string" />
+			<field length="3"	name="nroHorasLaboradas" type="string" justify="right"/>
+			
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+				
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+
+		<record name="ley1819" order="6" class="net.jaimetorres.pila.approval.pojos.output.activos.cajas.ActivosCajasLey1819Out" minOccurs="0" maxOccurs="1">
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="4"/>		
+			<field length="1"	name="indicadorUgpp" type="string" justify="right"/>
+			<field length="14"	name="nroActoAdministrativo" type="string" />
+			<field length="10"	name="fechaAperturaLiquidacion" type="string" />
+			<field length="20"	name="nombreEntidad" type="string" />
+			<field length="13"	name="valorPagadoSancion" type="string" justify="right"/>
+		</record> 
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="7" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+ 	
+ 	<!-- SENA -->
+ 	<stream name="ActivosSenaOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="05" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>			
+			<field length="10"	name="fechaMatriculaMercantil" type="string" />
+			<field length="2"	name="codigoDepartamentoMatriculaMercantil" type="string" />
+			<field length="1"	name="aportanteExoneradoLey1607" type="string"/>
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string"/>
+		</record>
+		
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaLiquidacionDetalladaOut" minOccurs="0" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string" />
+			<field length="16"	name="nroIdentificacion" type="string" />
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string" />			
+			<field length="1"	name="colombianoResidenteExterior" type="string" />
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string" />
+			<field length="30"	name="segundoApellido" type="string" />
+			<field length="20"	name="primerNombre" type="string" />
+			<field length="30"	name="segundoNombre" type="string" />
+			<field length="1"	name="novedadIngreso" type="string" />
+			<field length="1"	name="novedadRetiro" type="string" />
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string" />
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string" />
+			<field length="1"	name="novedadSuspension" type="string" />
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string" />
+			<!-- 21 -->
+			<field length="1"	name="novedadLicenciaMaternidad" type="string" />
+			<field length="1"	name="novedadVacaciones" type="string" />
+			<field length="2"	name="diasNovedadIncapacidadRiesgosProfesionales" type="string" justify="right"/>
+			<field length="2"	name="diasCotizados" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibc" type="string" justify="right"/>
+			<field length="7"	name="tarifa" type="string" justify="left"/>
+			<field length="9"	name="cotizacion" type="string" justify="right"/>
+			<field length="1"	name="novedadCorreccion" type="string" />
+			<field length="1"	name="salarioIntegral" type="string" />
+			<!-- 31 -->
+			<field length="1"	name="cotizanteExoneradoLey1607" type="string" />
+			<field length="10"	name="fechaIngreso" type="string" />
+			<field length="10"	name="fechaRetiro" type="string" />
+			<field length="10"	name="fechaInicioVSP" type="string" />
+			<field length="10"	name="fechaInicioSLN" type="string" />
+			<field length="10"	name="fechaFinSLN" type="string" />
+			<field length="10"	name="fechaInicioIGE" type="string" />
+			<field length="10"	name="fechaFinIGE" type="string" />
+			<field length="10"	name="fechaInicioLMA" type="string" />
+			<field length="10"	name="fechaFinLMA" type="string" />
+			<!-- 41 -->
+			<field length="10"	name="fechaInicioVAC" type="string" />
+			<field length="10"	name="fechaFinVAC" type="string" />
+			<field length="10"	name="fechaInicioVCT" type="string" />
+			<field length="10"	name="fechaFinVCT" type="string" />
+			<field length="10"	name="fechaInicioIRL" type="string" />
+			<field length="10"	name="fechaFinIRL" type="string" />
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+				
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="ley1819" order="6" class="net.jaimetorres.pila.approval.pojos.output.activos.sena.ActivosSenaLey1819Out" minOccurs="0" maxOccurs="1">
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="4"/>		
+			<field length="1"	name="indicadorUgpp" type="string" justify="right"/>
+			<field length="14"	name="nroActoAdministrativo" type="string" />
+			<field length="10"	name="fechaAperturaLiquidacion" type="string" />
+			<field length="20"	name="nombreEntidad" type="string" />
+			<field length="13"	name="valorPagadoSancion" type="string" justify="right"/>
+		</record> 
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="7" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+		
+ 	</stream>
+ 	
+ 	<!-- ICBF -->
+ 	<stream name="ActivosIcbfOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="05" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="8"	name="nroRegistrosTipo2" type="string" justify="right"/>			
+			<field length="10"	name="fechaMatriculaMercantil" type="string" />
+			<field length="2"	name="codigoDepartamentoMatriculaMercantil" type="string" />
+			<field length="1"	name="aportanteExoneradoLey1607" type="string" />
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string" />
+		</record>
+		
+		<record name="liquidacionDetallada" order="2" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfLiquidacionDetalladaOut" minOccurs="0" maxOccurs="unbounded">
+			<field length="5"	name="secuencia" type="string" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="2" rid="true"/>
+			<field length="2"	name="tipoIdentificacion" type="string" />
+			<field length="16"	name="nroIdentificacion" type="string" />
+			<field length="2"	name="tipoCotizante" type="string" justify="right"/>
+			<field length="2"	name="subtipoCotizante" type="string" justify="right"/>
+			<field length="1"	name="extranjeroNoObligadoCotPension" type="string" />			
+			<field length="1"	name="colombianoResidenteExterior" type="string" />
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<!-- 11 -->
+			<field length="20"	name="primerApellido" type="string" />
+			<field length="30"	name="segundoApellido" type="string" />
+			<field length="20"	name="primerNombre" type="string" />
+			<field length="30"	name="segundoNombre" type="string" />
+			<field length="1"	name="novedadIngreso" type="string" />
+			<field length="1"	name="novedadRetiro" type="string" />
+			<field length="1"	name="novedadVariacionSalarioPermanente" type="string" />
+			<field length="1"	name="novedadVariacionSalarioTransitoria" type="string" />
+			<field length="1"	name="novedadSuspension" type="string" />
+			<field length="1"	name="novedadIncapacidadEnfermedadGeneral" type="string" />
+			<!-- 21 -->
+			<field length="1"	name="novedadLicenciaMaternidad" type="string" />
+			<field length="1"	name="novedadVacaciones" type="string" />
+			<field length="2"	name="diasNovedadIncapacidadRiesgosProfesionales" type="string" justify="right"/>
+			<field length="2"	name="diasCotizados" type="string" justify="right"/>
+			<field length="9"	name="salarioBasico" type="string" justify="right"/>
+			<field length="9"	name="ibc" type="string" justify="right"/>
+			<field length="7"	name="tarifa" type="string" justify="left"/>
+			<field length="9"	name="cotizacion" type="string" justify="right"/>
+			<field length="1"	name="novedadCorreccion" type="string" />
+			<field length="1"	name="salarioIntegral" type="string" />
+			<!-- 31 -->
+			<field length="1"	name="cotizanteExoneradoLey1607" type="string" />
+			<field length="10"	name="fechaIngreso" type="string" />
+			<field length="10"	name="fechaRetiro" type="string" />
+			<field length="10"	name="fechaInicioVSP" type="string" />
+			<field length="10"	name="fechaInicioSLN" type="string" />
+			<field length="10"	name="fechaFinSLN" type="string" />
+			<field length="10"	name="fechaInicioIGE" type="string" />
+			<field length="10"	name="fechaFinIGE" type="string" />
+			<field length="10"	name="fechaInicioLMA" type="string" />
+			<field length="10"	name="fechaFinLMA" type="string" />
+			<!-- 41 -->
+			<field length="10"	name="fechaInicioVAC" type="string" />
+			<field length="10"	name="fechaFinVAC" type="string" />
+			<field length="10"	name="fechaInicioVCT" type="string" />
+			<field length="10"	name="fechaFinVCT" type="string" />
+			<field length="10"	name="fechaInicioIRL" type="string" />
+			<field length="10"	name="fechaFinIRL" type="string" />
+		</record>
+
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+				
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+
+		<record name="ley1819" order="6" class="net.jaimetorres.pila.approval.pojos.output.activos.icbf.ActivosIcbfLey1819Out" minOccurs="0" maxOccurs="1">
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="4"/>		
+			<field length="1"	name="indicadorUgpp" type="string" justify="right"/>
+			<field length="14"	name="nroActoAdministrativo" type="string" />
+			<field length="10"	name="fechaAperturaLiquidacion" type="string" />
+			<field length="20"	name="nombreEntidad" type="string" />
+			<field length="13"	name="valorPagadoSancion" type="string" justify="right"/>
+		</record> 
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="7" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+ 	
+ 	<!-- ESAP -->
+ 	<stream name="ActivosEsapOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+ 	
+ 		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.esap.ActivosEsapEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="06" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string" />
+		</record>
+		
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.esap.ActivosEsapTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.esap.ActivosEsapTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.esap.ActivosEsapTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="6" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+ 	
+ 	<!-- MINEDU -->
+ 	<stream name="ActivosMineduOutputFile" format="fixedlength" resourceBundle="ValidationMessages">
+	
+		<parser>
+ 			<property name="recordTerminator" value="\r\n"/>
+ 		</parser>
+	
+		<record name="encabezado" order="1" class="net.jaimetorres.pila.approval.pojos.output.activos.minedu.ActivosMineduEncabezadoOut" minOccurs="1" maxOccurs="1">			
+			<field length="5"	name="nroRegistro" type="string" literal="00000" justify="right"/>
+			<field length="1"	name="tipoRegistro" type="string" literal="1" rid="true" justify="right"/>
+			<field length="2"	name="codigoFormato" type="string" literal="06" justify="right"/>
+			<field length="16"	name="nroIdentificacionAdm" type="string" />
+			<field length="1"	name="dvAdm" type="string" justify="right"/>
+			<field length="200"	name="razonSocialAportante" type="string" />
+			<field length="2"	name="tipoIdentificacionAportante" type="string" />
+			<field length="16"	name="nroIdentificacionAportante" type="string" />
+			<field length="1"	name="dvAportante" type="string" justify="right"/>
+			<field length="2"	name="tipoAportante" type="string" />
+			<!-- 11 -->
+			<field length="40"	name="direccionCorrespondencia" type="string" />
+			<field length="3"	name="codigoMunicipio" type="string" justify="right"/>
+			<field length="2"	name="codigoDepartamento" type="string" justify="right"/>
+			<field length="10"	name="telefono" type="string" justify="right"/>
+			<field length="10"	name="fax" type="string" justify="right"/>
+			<field length="60"	name="correoElectronico" type="string" />
+			<field length="7"	name="periodoPago" type="string" />
+			<field length="1"	name="tipoPlanilla" type="string" />
+			<field length="10"	name="fechaPagoPlanillaAsociada" type="string" />
+			<field length="10"	name="fechaPago" type="string" />
+			<!-- 21 -->
+			<field length="10"	name="nroPlanillaAsociada" type="string" />
+			<field length="10"	name="nroPlanilla" type="string" />
+			<field length="1"	name="formaPresentacion" type="string" />
+			<field length="10"	name="codigoSucursal" type="string" />
+			<field length="40"	name="nombreSucursal" type="string" />
+			<field length="5"	name="nroEmpleados" type="string" justify="right"/>
+			<field length="5"	name="nroAfiliadosAdm" type="string" justify="right"/>
+			<field length="2"	name="codigoOperador" type="string" justify="right"/>
+			<field length="1"	name="modalidadPlanilla" type="string" justify="right"/>
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<!-- 31 -->
+			<field length="1"	name="claseAportante" type="string" />
+			<field length="1"	name="naturalezaJuridica" type="string" />
+			<field length="1"	name="tipoPersona" type="string" />
+			<field length="10"	name="fechaUltimaActualizacion" type="string" />
+		</record>
+		
+		<record name="totalesRenglon31" order="3" class="net.jaimetorres.pila.approval.pojos.output.activos.minedu.ActivosMineduTotalesRenglon31Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon31" type="string" justify="right" literal="00031" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>
+			<field length="13"	name="totalIbc" type="string" justify="right"/>
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+				
+		<record name="totalesRenglon36" order="4" class="net.jaimetorres.pila.approval.pojos.output.activos.minedu.ActivosMineduTotalesRenglon36Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon36" type="string" justify="right" literal="00036" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="4"	name="diasMora" type="string" justify="right"/>
+			<field length="11"	name="moraCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<record name="totalesRenglon39" order="5" class="net.jaimetorres.pila.approval.pojos.output.activos.minedu.ActivosMineduTotalesRenglon39Out" minOccurs="1" maxOccurs="1">
+			<field length="5"	name="registroTotalesRenglon39" type="string" justify="right" literal="00039" rid="true"/>
+			<field length="1"	name="tipoRegistro" type="string" justify="right" rid="true" literal="3"/>		
+			<field length="13"	name="totalCotizacion" type="string" justify="right"/>
+		</record>
+		
+		<!-- bugfix: enters to the end -->
+		<record name="empty" order="6" minOccurs="0" maxOccurs="unbounded" ridLength="0">
+			<field length="unbounded" name="none" type="string"/>
+		</record>
+
+ 	</stream>
+</beanio>
